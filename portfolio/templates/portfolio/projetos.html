@@ -1,0 +1,41 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
+
+<h1 class="title">Os meus Projetos</h1>
+
+<hr style="border-top: 1px solid #37372F">
+
+<div class="projects">
+    {% for projeto in projetos %}
+    <div class="project-item">
+        <img src="{% static projeto.imagem.url %}">
+        <a href="#{{projeto.titulo}}" class="proj-text">
+            <p class="proj-name">{{projeto.titulo}}</p>
+            <p class="click">Clique para mais informações</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% for projeto in projetos %}
+<br id="{{projeto.titulo}}"><br><br><br>
+<div class="proj-desc">
+    <h2>> {{projeto.titulo}}</h2>
+    <h3>Ano de realização: {{projeto.ano}}º ano</h3>
+    <p>Descrição: {{projeto.descricao}}</p>
+    <p>Tecnologias usadas: {{projeto.tecnologias}}</p>
+    <p>Participantes:
+        <br>
+        {% for pessoa in projeto.participantes.all %}
+        {{pessoa.nome}}
+        <br>
+        {% endfor %}
+    </p>
+    <a class="git" href="{{projeto.gitLink}}"><img src="{% static 'portfolio/images/github.png' %}"></a>
+</div>
+{% endfor %}
+
+{% endblock %}

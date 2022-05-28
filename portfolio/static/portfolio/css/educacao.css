@@ -1,0 +1,70 @@
+.title {
+  text-decoration: none;
+  font-weight: bold;
+  color: #37372F;
+  font-size: 2em;
+  padding: 1em;
+  border: 0;
+  margin-top: -1em;
+  margin-left: -1.5em;
+}
+
+#subtitle {
+  text-decoration: none;
+  font-weight: bold;
+  color: #37372F;
+  font-size: 1.2em;
+  padding: 1em;
+  border: 0;
+  margin-top: -2em;
+  margin-left: -1.8em;
+}
+
+.cadeiras {
+  background-color: #F8F4E3;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 4em;
+}
+
+.cadeiras div {
+  width: 350px;   height: auto;
+  padding: 25px;  margin: 10px;
+  background-color: #FBB99D;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px #2A2B2A;
+}
+
+div p:first-child {
+  width: 350px;
+  height: 50px;
+  margin: -25px;
+  margin-bottom: 15px;
+  padding-top: 12px;
+  padding-left: 12px;
+  background-color: #37372F;
+  color: #F8F4E3;
+  border-radius: 10px 10px 0px 0px;
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+.cadeiras div:active .hide {
+  display: block;
+}
+
+.cadeiras div:active {
+  width: 1090px;
+  z-index: 10;
+  position: fixed;
+  box-shadow: 5px 5px 50px 500px rgba(0,0,0,0.5);
+}
+
+.cadeiras div:active p:first-child {
+  width: 1090px;
+}
+

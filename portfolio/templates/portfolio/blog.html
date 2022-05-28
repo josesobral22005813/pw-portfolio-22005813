@@ -1,0 +1,19 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+{% for comment in comments %}
+<p>
+    {% if comment.concluido == True %}
+    <del>{{ comment.titulo }}</del>
+    {% else %}
+    {{ comment.titulo }}
+    {% endif %}
+
+    <a href="{% url 'portfolio:edit' comment.id %}" class="btn btn-warning  btn-sm"
+       style="float: right; margin-right: 10px">
+        Editar
+    </a>
+</p>
+{% endfor %}
+<a href="{% url 'portfolio:new' %}" class="btn btn-success btn-block">+ Nova Tarefa</a>
+{% endblock %}

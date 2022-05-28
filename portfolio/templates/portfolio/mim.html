@@ -1,0 +1,22 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/mim.css' %}">
+
+<div class="container">
+    <img id="foto" src="{% static 'portfolio/images/eu.png' %}">
+    Ola, sou o José Sobral, vivo em Sintra, e este é o meu portfolio! <br>
+    Sou estudante de Engenharia Informatica na Universidade Lusófona de Humanidades e Tecnologias. <br>
+    Gostaria de ter uma carreira profissional relacionada com Web, quer seja front-end ou back-end. <br>
+    Gosto de fazer desporto, nomeadamente andebol, rugby e futebol. Também me interesso por video-jogos. <br>
+    <div class="vertical"></div>
+    <div class="socials">
+        <a href="https://github.com/josesobral22005813"><img src="{% static 'portfolio/images/github.png' %}"></a>
+        <a href="https://www.linkedin.com/in/jos%C3%A9-sobral-26621720b/"><img
+                src="{% static 'portfolio/images/linkedin.png' %}"></a>
+        <a href="https://www.instagram.com/ze__pedro.s/"><img src="{% static 'portfolio/images/insta.png' %}"></a>
+    </div>
+</div>
+
+{% endblock %}

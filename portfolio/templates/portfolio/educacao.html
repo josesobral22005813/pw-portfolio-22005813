@@ -1,0 +1,57 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/educacao.css' %}">
+
+<h1 class="title">Licenciatura (Cadeiras):</h1>
+<h3 id="subtitle">Clique na cadeira e mantenha premido para mais informações</h3>
+
+<div class="cadeiras">
+    {% for cadeira in cadeiras %}
+
+    <div>
+        <p>{{ cadeira.nome }} ({{ cadeira.ects }} ECTS)</p>
+        <p>Ano: {{ cadeira.ano }}º ano</p>
+        <p>Semestre: {{ cadeira.semestre }}º Semestre</p>
+        <p class="hide">Descrição: {{ cadeira.descricao }}</p>
+        <p>Ranking:
+            {% if cadeira.ranking == 5 %}
+            ⭐⭐⭐⭐⭐
+            {% elif cadeira.ranking == 4 %}
+            ⭐⭐⭐⭐
+            {% elif cadeira.ranking == 3 %}
+            ⭐⭐⭐
+            {% elif cadeira.ranking == 2 %}
+            ⭐⭐
+            {% elif cadeira.ranking == 1 %}
+            ⭐
+            {% else %}
+            N/A
+            {% endif %}
+        </p>
+        <p>Professores:
+            <br>
+            {% for pessoa in cadeira.professores.all %}
+            {{ pessoa.nome }}
+            <br>
+            {% endfor %}
+        </p>
+        <p><a href="{{ cadeira.link }}">Link</a></p>
+        <p>Projetos:
+            <br>
+            {{ cadeira.projetos }}
+
+        </p>
+    </div>
+
+    {% endfor %}
+</div>
+
+<h1 class="title">Educação:</h1>
+
+
+<h1 class="title">Certificados:</h1>
+
+
+{% endblock %}

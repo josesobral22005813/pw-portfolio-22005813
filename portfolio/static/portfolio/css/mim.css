@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #FBB99D;
+  box-shadow: 5px 5px 15px #706C61;
+  padding: 3%;
+  font-size: 1.6vw;
+}
+
+#foto {
+  width: 30%;
+  height: auto;
+  margin-right: 30px;
+}
+
+.vertical {
+  border-left: 1px solid #2A2B2A;
+  margin: 1%;
+}
+
+.socials {
+  width: 10%;
+  height: auto;
+  margin-right: -4%;
+}
+
+.socials img {
+  width: 50%;
+  height: auto;
+  margin-bottom: 15%;
+}

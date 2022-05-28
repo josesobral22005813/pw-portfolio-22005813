@@ -1,0 +1,82 @@
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.urls import reverse
+from .forms import CommentForm
+from .models import *
+
+
+def home_page_view(request):
+    return render(request, 'portfolio/home.html')
+
+
+def mim_page_view(request):
+    return render(request, 'portfolio/mim.html')
+
+
+def educacao_page_view(request):
+    context = {
+        "cadeiras": Cadeira.objects.all()
+    }
+    return render(request, 'portfolio/educacao.html', context)
+
+
+def competencias_page_view(request):
+    return render(request, 'portfolio/competencias.html')
+
+
+def projetos_page_view(request):
+    context = {
+        "projetos": Projeto.objects.all()
+    }
+    return render(request, 'portfolio/projetos.html', context)
+
+
+def sobre_page_view(request):
+    return render(request, 'portfolio/sobre.html')
+
+
+def website_page_view(request):
+    return render(request, 'portfolio/website.html')
+
+
+def noticias_page_view(request):
+    return render(request, 'portfolio/noticias.html')
+
+
+def quizz_page_view(request):
+    return render(request, 'portfolio/quizz.html')
+
+
+def blog_page_view(request):
+    context = {
+        "comments": Comment.objects.all()
+    }
+    return render(request, 'portfolio/blog.html', context)
+
+
+def new_comment_view(request):
+    form = CommentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:blog'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/new.html', context)
+
+
+def edit_comment_view(request, comment_id):
+    comment = Comment.objects.get(id=comment_id)
+    form = CommentForm(request.POST or None, instance=comment)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:blog'))
+
+    context = {'form': form, 'comment_id': comment_id}
+    return render(request, 'portfolio/edit.html', context)
+
+
+def delete_comment_view(request, comment_id):
+    Comment.objects.get(id=comment_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:blog'))

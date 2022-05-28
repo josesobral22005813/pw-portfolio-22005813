@@ -1,0 +1,114 @@
+/*
+    palette:
+        jet (black) - #2A2B2A
+        black olive (grey) - #37372F
+        cosmic latte (beige) - #F8F4E3
+        coral (orange) - #FFA185
+        melon (less-orange) - #FBB99D
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #2A2B2A;
+}
+
+#nome {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 4.8vh;
+  color: #F8F4E3;
+  padding: 1em;
+  border: 0;
+}
+
+header {
+  position: sticky;
+  height: 10vh;
+  background: #2A2B2A;
+  color: white;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+header nav {
+  display:flex;
+  justify-contents: flex-end;
+}
+
+nav a {
+  background-color: #2A2B2A;
+  border: 0;
+  padding: 3vh 2.4vw;
+  text-align: center;
+  margin: 4px 2px;
+  transition: 0.3s;
+  text-decoration: none;
+  font-size: 2.2vh;
+  color: #F8F4E3;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background-color: #FF825C;
+  color: #2A2B2A;
+}
+
+.menu-container {
+  position: relative;
+  display: flex;
+}
+
+.menu-container:hover .menu {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  z-index: 1;
+}
+
+#login {
+  background-color: #FFA185;
+  border: 0;
+  padding: 1.5vh 2vw 4vh 2vw;
+  height: 2vh;
+  text-align: center;
+  margin-top: 2.2vh;
+  margin-left: 30px;
+  margin-right: 10px;
+  transition: 0.3s;
+  text-decoration: none;
+  font-size: 2.2vh;
+  color: #2A2B2A;
+  border-radius: 250px;
+}
+
+#login:hover {
+  background-color: #FBB99D;
+}
+
+main {
+  min-height: 100vh;
+  background-color: #F8F4E3;
+  padding: 4em 4em;
+}
+
+footer {
+  height: 5vh;
+  font-size: 3vh;
+  padding: 8px 2vw;
+  background-color: #2A2B2A;
+  color: #F8F4E3;
+}
+
