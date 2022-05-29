@@ -1,5 +1,35 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/website.css' %}">
+
+<h1 id="title">Portfólio de José Sobral</h1>
+
+<div class="tech">
+    <div>
+        <img src="{% static 'portfolio/images/django.png' %}">
+        <p>Este website foi criado com a framework Django</p>
+    </div>
+    <div>
+        <img src="{% static 'portfolio/images/css.png' %}">
+        <p>Este website foi estilizado com CSS</p>
+    </div>
+    <div>
+        <img src="{% static 'portfolio/images/python.png' %}">
+        <p>A framework Django suporta código em Python, que foi utilizado para a realização deste Website</p>
+    </div>
+</div>
+
+<h2>Para este website foi utilizada a seguinte palete de cores:</h2>
+
+<div class="cores">
+    <img src="{% static 'portfolio/images/palette.png' %}">
+    <p>jet (#2A2B2A)</p>
+    <p>black olive (#37372F)</p>
+    <p>cosmic latte (#F8F4E3)</p>
+    <p>melon (#FBB99D)</p>
+    <p>coral (#FFA185)</p>
+</div>
 
 {% endblock %}

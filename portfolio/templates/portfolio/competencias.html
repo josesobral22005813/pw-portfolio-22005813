@@ -1,5 +1,17 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/competencias.css' %}">
+
+<div class="competencias">
+    {% for competencia in competencias %}
+    <div>
+        <p>{{competencia.titulo}}</p>
+        <p>Descrição: {{competencia.descricao}}</p>
+    </div>
+    {% endfor %}
+</div>
+
 
 {% endblock %}

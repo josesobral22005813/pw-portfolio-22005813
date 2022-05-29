@@ -22,7 +22,10 @@ def educacao_page_view(request):
 
 
 def competencias_page_view(request):
-    return render(request, 'portfolio/competencias.html')
+    context = {
+        "competencias": Competencia.objects.all()
+    }
+    return render(request, 'portfolio/competencias.html', context)
 
 
 def projetos_page_view(request):
