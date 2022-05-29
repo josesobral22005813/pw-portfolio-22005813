@@ -25,7 +25,7 @@ def resolution_path(instance, filename):
 class Projeto(models.Model):
     titulo = models.CharField(max_length=30)
     descricao = models.CharField(max_length=500)
-    imagem = models.ImageField(upload_to=resolution_path)
+    imagem = models.ImageField(upload_to='media/', null=True)
     ano = models.IntegerField()
     participantes = models.ManyToManyField(Pessoa)
     gitLink = models.TextField()
