@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from .forms import CommentForm
+from .forms import PostForm
 from .models import *
 from .quizz import desenha_grafico_resultados
 
