@@ -9,11 +9,15 @@ class PostForm(ModelForm):
         fields = '__all__'
 
         widgets = {
-            'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'descrição da tarefa...'}),
+            'autor': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Introduza o seu nome'}),
+            'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Introduza um titulo'}),
+            'descricao': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Introduza uma descrição'}),
         }
 
         labels = {
+            'autor': 'Autor',
             'titulo': 'Título',
+            'descricao': 'Descrição',
         }
 
         help_texts = {

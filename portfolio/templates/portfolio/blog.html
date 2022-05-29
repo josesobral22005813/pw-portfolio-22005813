@@ -1,15 +1,23 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-{% for post in posts %}
-<p>
-    {{ post.titulo }}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
+<div class="container">
+    <a href="{% url 'portfolio:new' %}" class="new">Novo Post</a>
+</div>
 
-    <a href="{% url 'portfolio:edit' post.id %}" class="btn btn-warning  btn-sm"
-       style="float: right; margin-right: 10px">
-        Editar
-    </a>
-</p>
+{% for post in posts %}
+<div class="posts">
+    <div>
+        <h2>{{ post.titulo }}</h2>
+        <h4>{{ post.descricao }}</h4>
+        <p>{{ post.autor }}</p>
+        <p>{{ post.data }}</p>
+        <a href="{% url 'portfolio:edit' post.id %}" id="edit">
+            Editar
+        </a>
+    </div>
+</div>
 {% endfor %}
-<a href="{% url 'portfolio:new' %}" class="btn btn-success btn-block">+ Novo Post</a>
 {% endblock %}

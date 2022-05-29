@@ -60,7 +60,7 @@ def blog_page_view(request):
     return render(request, 'portfolio/blog.html', context)
 
 
-def new_comment_view(request):
+def new_post_view(request):
     form = PostForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -71,18 +71,18 @@ def new_comment_view(request):
     return render(request, 'portfolio/new.html', context)
 
 
-def edit_comment_view(request, comment_id):
-    comment = Post.objects.get(id=comment_id)
-    form = PostForm(request.POST or None, instance=comment)
+def edit_post_view(request, post_id):
+    post = Post.objects.get(id=post_id)
+    form = PostForm(request.POST or None, instance=post)
 
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('portfolio:blog'))
 
-    context = {'form': form, 'comment_id': comment_id}
+    context = {'form': form, 'comment_id': post_id}
     return render(request, 'portfolio/edit.html', context)
 
 
-def delete_comment_view(request, comment_id):
-    Post.objects.get(id=comment_id).delete()
+def delete_post_view(request, post_id):
+    Post.objects.get(id=post_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
