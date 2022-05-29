@@ -1,19 +1,15 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-{% for comment in comments %}
+{% for post in posts %}
 <p>
-    {% if comment.concluido == True %}
-    <del>{{ comment.titulo }}</del>
-    {% else %}
-    {{ comment.titulo }}
-    {% endif %}
+    {{ post.titulo }}
 
-    <a href="{% url 'portfolio:edit' comment.id %}" class="btn btn-warning  btn-sm"
+    <a href="{% url 'portfolio:edit' post.id %}" class="btn btn-warning  btn-sm"
        style="float: right; margin-right: 10px">
         Editar
     </a>
 </p>
 {% endfor %}
-<a href="{% url 'portfolio:new' %}" class="btn btn-success btn-block">+ Nova Tarefa</a>
+<a href="{% url 'portfolio:new' %}" class="btn btn-success btn-block">+ Novo Post</a>
 {% endblock %}

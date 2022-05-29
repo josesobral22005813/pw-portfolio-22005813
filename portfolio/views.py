@@ -55,7 +55,7 @@ def quizz_page_view(request):
 
 def blog_page_view(request):
     context = {
-        "comments": Comment.objects.all()
+        "posts": Post.objects.all()
     }
     return render(request, 'portfolio/blog.html', context)
 

@@ -51,11 +51,11 @@ class Cadeira(models.Model):
         return self.nome
 
 
-class Comment(models.Model):
+class Post(models.Model):
+    autor = models.CharField(max_length=200)
     titulo = models.CharField(max_length=200)
-    prioridade = models.IntegerField(default=1)
-    concluido = models.BooleanField(default=False)
-    criado = models.DateTimeField(auto_now_add=True)
+    descricao = models.CharField(max_length=200)
+    data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.titulo[:50]

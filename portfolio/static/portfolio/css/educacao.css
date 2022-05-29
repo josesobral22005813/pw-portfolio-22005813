@@ -68,3 +68,6 @@ div p:first-child {
   width: 1090px;
 }
 
+.escolas p {
+  margin-bottom: 3vh;
+}
