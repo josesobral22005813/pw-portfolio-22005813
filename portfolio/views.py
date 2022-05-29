@@ -4,6 +4,8 @@ from django.urls import reverse
 from .forms import PostForm
 from .models import *
 from .quizz import desenha_grafico_resultados
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 
 
 def home_page_view(request):
@@ -61,6 +63,9 @@ def blog_page_view(request):
 
 
 def new_post_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
     form = PostForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -72,6 +77,9 @@ def new_post_view(request):
 
 
 def edit_post_view(request, post_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
     post = Post.objects.get(id=post_id)
     form = PostForm(request.POST or None, instance=post)
 
@@ -86,3 +94,30 @@ def edit_post_view(request, post_id):
 def delete_post_view(request, post_id):
     Post.objects.get(id=post_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
+
+def view_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(
+            request,
+            username=username,
+            password=password)
+
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('portfolio:home'))
+        else:
+            return render(request, 'portfolio/login.html', {
+                'message': 'Credenciais invalidas.'
+            })
+
+    return render(request, 'portfolio/login.html')
+
+def view_logout(request):
+    logout(request)
+
+    return render(request, 'portfolio/login.html', {
+                'message': 'Foi desconetado.'
+            })

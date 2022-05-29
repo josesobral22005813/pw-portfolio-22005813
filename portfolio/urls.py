@@ -18,4 +18,6 @@ urlpatterns = [
     path('new/', views.new_post_view, name='new'),
     path('edit/<int:post_id>', views.edit_post_view, name='edit'),
     path('delete/<int:post_id>', views.delete_post_view, name='delete'),
+    path('login/', views.view_login, name='login'),
+    path('logout/', views.view_logout, name='logout'),
 ]
