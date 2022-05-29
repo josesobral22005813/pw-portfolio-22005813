@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from .forms import CommentForm
 from .models import *
+from .quizz import desenha_grafico_resultados
 
 
 def home_page_view(request):
@@ -44,6 +45,8 @@ def noticias_page_view(request):
 
 
 def quizz_page_view(request):
+    desenha_grafico_resultados(request)
+
     return render(request, 'portfolio/quizz.html')
 
 

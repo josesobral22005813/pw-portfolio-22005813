@@ -11,7 +11,7 @@
 <div class="projects">
     {% for projeto in projetos %}
     <div class="project-item">
-        <img src="{% static projeto.imagem.url %}">
+        <img src="{{projeto.imagem.url}}">
         <a href="#{{projeto.titulo}}" class="proj-text">
             <p class="proj-name">{{projeto.titulo}}</p>
             <p class="click">Clique para mais informações</p>

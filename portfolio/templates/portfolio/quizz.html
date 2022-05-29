@@ -1,5 +1,32 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
+<form method="POST" action="{% url 'portfolio:quizz' %}" enctype="multipart/form-data" id="form">
+    {% csrf_token %}
+    <p>Indique o seu nome</p>
+    <input type="text" name="nome" autocomplete="off" size="50" maxlength="50">
+    <br>
+
+    <p>Que técnologia é usada para estilizar este website?</p>
+    <input type="text" name="q1" autocomplete="off" placeholder="Responda aqui" size="50" maxlength="50">
+    <br>
+
+    <p>Qual a framework utilizada para criar este website?</p>
+    <input type="text" name="q2" autocomplete="off" placeholder="Responda aqui" size="50" maxlength="50">
+    <br>
+
+    <p>A sigla JS em web designa-se por?</p>
+    <input type="text" name="q3" autocomplete="off" placeholder="Responda aqui" size="50" maxlength="50">
+    <br>
+
+    <p>A página inicial de um website chama-se hero page?</p>
+    <input type="text" name="q4" autocomplete="off" placeholder="Responda aqui" size="50" maxlength="50">
+    <br>
+
+    <input type="submit">
+
+</form>
+{% load static %}
+<img src="{% static 'portfolio/images/graph.png' %}">
 
 {% endblock %}

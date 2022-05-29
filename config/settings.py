@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from environs import Env
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = Env()
 env.read_env()
@@ -115,7 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/portfolio/static/'
+STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('portfolio/static'))]
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
@@ -133,5 +136,5 @@ CLOUDINARY_STORAGE = {
 }
 
 MEDIA_URL = '/portfolio/'
-
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
