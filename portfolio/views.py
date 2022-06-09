@@ -46,7 +46,10 @@ def website_page_view(request):
 
 
 def noticias_page_view(request):
-    return render(request, 'portfolio/noticias.html')
+    context = {
+        "noticias": Noticia.objects.all()
+    }
+    return render(request, 'portfolio/noticias.html', context)
 
 
 def quizz_page_view(request):

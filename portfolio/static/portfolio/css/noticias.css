@@ -1,0 +1,15 @@
+.container {
+  background-color: #F8F4E3;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  font-size: 1.2em;
+}
+
+#img {
+  width: 400px;
+  height: auto;
+}

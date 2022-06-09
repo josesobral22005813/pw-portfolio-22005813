@@ -1,5 +1,17 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/noticias.css' %}">
 
+{% for noticia in noticias %}
+<div class="container">
+    <img id="img" src="{{ noticia.imagem.url }}">
+    <h1>{{ noticia.titulo }}</h1>
+    <p>{{ noticia.descricao }}</p>
+    <a href="{{ noticia.link }}">link</a>
+</div>
+
+<hr style="border-top: 1px solid #2A2B2A">
+{% endfor %}
 {% endblock %}
