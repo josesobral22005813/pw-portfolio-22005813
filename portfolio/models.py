@@ -74,7 +74,6 @@ class Noticia(models.Model):
     descricao = models.CharField(max_length=500)
     imagem = models.ImageField(upload_to='media/', null=True)
     link = models.CharField(max_length=200)
-    test = models.CharField(blank=True, max_length=200)
 
     def __str__(self):
         return f"{self.titulo}"
