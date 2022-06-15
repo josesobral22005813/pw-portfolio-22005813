@@ -1,0 +1,59 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/apis.css' %}">
+
+<div>
+    <h3>Meteorologia em Lisboa hoje</h3>
+    <p id="summary"></p>
+    <p id="temperature"></p>
+    <p id="precipProbability"></p>
+</div>
+
+<div>
+    <h3>Heads or Tails</h3>
+    <p id="outcome"></p>
+    <button onclick="headsOrTails()">Click me</button>
+</div>
+
+<script>
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '087cae93c3msh973098bd7b59909p1c02c4jsnabdfe3e69f0c',
+		'X-RapidAPI-Host': 'dark-sky.p.rapidapi.com'
+	}
+};
+
+fetch('https://dark-sky.p.rapidapi.com/38.736946,-9.142685?units=auto&lang=pt', options)
+	.then(response => response.json())
+	.then(data =>
+	    {
+	        const weather = data;
+	        document.getElementById("summary").innerHTML = "Sumário: " + String(weather.hourly.summary);
+	        document.getElementById("temperature").innerHTML = "Temperatura: " + String(weather.currently.temperature) + "ºC";
+	        document.getElementById("precipProbability").innerHTML = "Probabilidade de Precipitação: " + String(weather.currently.precipProbability) + "%";
+	    }
+	);
+
+function headsOrTails(){
+    const options2 = {
+	    method: 'GET',
+	    headers: {
+		    'X-RapidAPI-Key': '087cae93c3msh973098bd7b59909p1c02c4jsnabdfe3e69f0c',
+		    'X-RapidAPI-Host': 'coin-flip1.p.rapidapi.com'
+	    }
+    };
+
+    fetch('https://coin-flip1.p.rapidapi.com/headstails', options2)
+	    .then(response => response.json())
+	    .then(data =>
+	        {
+	            document.getElementById("outcome").innerHTML = String(data.outcome);
+	        }
+	    );
+}
+
+</script>
+{% endblock %}

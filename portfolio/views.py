@@ -36,6 +36,9 @@ def projetos_page_view(request):
     }
     return render(request, 'portfolio/projetos.html', context)
 
+def apis_page_view(request):
+    return render(request, 'portfolio/apis.html')
+
 
 def sobre_page_view(request):
     return render(request, 'portfolio/sobre.html')
@@ -98,6 +101,7 @@ def delete_post_view(request, post_id):
     Post.objects.get(id=post_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
 
+
 def view_login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -118,9 +122,8 @@ def view_login(request):
 
     return render(request, 'portfolio/login.html')
 
+
 def view_logout(request):
     logout(request)
 
-    return render(request, 'portfolio/login.html', {
-                'message': 'Foi desconetado.'
-            })
+    return render(request, 'portfolio/login.html')

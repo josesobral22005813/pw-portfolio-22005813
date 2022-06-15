@@ -5,9 +5,17 @@
   font-size: 2em;
   padding: 1em;
   border: 0;
-  margin-top: -1em;
-  margin-bottom: -1em;
-  margin-left: -1.5em;
+}
+
+.container {
+  background-color: #F8F4E3;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 4em;
+  margin-top: -2em;
+  font-size: 1.2em;
 }
 
 input[type=text] {
@@ -21,6 +29,17 @@ input[type=text]:focus {
   border: 2px solid #555;
 }
 
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=password]:focus {
+  border: 2px solid #555;
+}
+
 input[type=submit] {
   background-color: #FBB99D;
   border: none;
@@ -31,9 +50,4 @@ input[type=submit] {
   margin: 4px 2px;
   cursor: pointer;
   border: 1px solid #2A2B2A;
-}
-
-img {
-  width: 100%;
-  height: auto;
 }

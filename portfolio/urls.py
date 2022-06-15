@@ -10,6 +10,7 @@ urlpatterns = [
     path('educacao', views.educacao_page_view, name='educacao'),
     path('competencias', views.competencias_page_view, name='competencias'),
     path('projetos', views.projetos_page_view, name='projetos'),
+    path('apis', views.apis_page_view, name='apis'),
     path('sobre', views.sobre_page_view, name='sobre'),
     path('website', views.website_page_view, name='website'),
     path('noticias', views.noticias_page_view, name='noticias'),
