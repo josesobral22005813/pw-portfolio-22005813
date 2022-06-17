@@ -83,7 +83,7 @@ class PontuacaoQuizz(models.Model):
         return f"{self.nome}"
 
 
-class Tecnologia(models.Model):
+class Tecnologias(models.Model):
     nome = models.CharField(max_length=100)
     acronimo = models.CharField(max_length=50)
     anoCriado = models.CharField(max_length=50)
