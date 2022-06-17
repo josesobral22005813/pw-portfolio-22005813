@@ -90,7 +90,7 @@ class Tecnologia(models.Model):
     criador = models.CharField(max_length=50)
     logotipo = models.ImageField(upload_to='media/', null=True)
     link = models.CharField(max_length=100)
-    descricao = models.CharField(max_length=100)
+    descricao = models.CharField(max_length=500)
 
     def __str__(self):
         return f"{self.nome}"
