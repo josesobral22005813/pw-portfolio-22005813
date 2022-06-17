@@ -37,5 +37,24 @@
     <a class="git" href="{{projeto.gitLink}}"><img src="{% static 'portfolio/images/github.png' %}"></a>
 </div>
 {% endfor %}
+<div class="container">
+    <a href="{% url 'portfolio:projetosNew' %}">Novo Projeto</a>
+</div>
+
+<h1 class="title">TFCs</h1>
+
+<hr style="border-top: 1px solid #37372F">
+
+{% for tfc in tfcs %}
+<div class="proj-desc">
+    <h2>> {{tfc.titulo}}</h2>
+    <h3>Autor: {{tfc.autor}}</h3>
+    <p>Orientador: {{tfc.orientador}}</p>
+    <p>Resumo: {{tfc.resumo}}</p>
+    <p>Descrição: {{tfc.descricao}}</p>
+    <a href="{{tfc.link}}">link</a>
+    <a class="git" href="{{tfc.gitLink}}"><img src="{% static 'portfolio/images/github.png' %}"></a>
+</div>
+{% endfor %}
 
 {% endblock %}

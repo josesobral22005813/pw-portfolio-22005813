@@ -68,6 +68,29 @@ div p:first-child {
   width: 1090px;
 }
 
+.container {
+  background-color: #F8F4E3;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: right;
+  margin-bottom: 4em;
+}
+
+.container a {
+  width: 150px;   height: auto;
+  padding: 25px;
+  background-color: #37372F;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px #2A2B2A;
+  text-decoration: none;
+  text-align: center;
+  color: #F8F4E3;
+}
+
+.container a:hover {
+  box-shadow: 5px 5px 25px #2A2B2A;
+}
+
 .escolas p {
   margin-bottom: 3vh;
 }

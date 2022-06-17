@@ -28,10 +28,23 @@ class Projeto(models.Model):
     descricao = models.CharField(max_length=500)
     imagem = models.ImageField(upload_to='media/', null=True)
     ano = models.IntegerField()
-    participantes = models.ManyToManyField(Pessoa)
+    participantes = models.ManyToManyField(Pessoa, blank=True)
     gitLink = models.TextField()
     tecnologias = models.TextField()
     competencias = models.ManyToManyField(Competencia, blank=True)
+
+    def __str__(self):
+        return self.titulo
+
+
+class Tfc(models.Model):
+    titulo = models.CharField(max_length=50)
+    autor = models.CharField(max_length=100)
+    orientador = models.CharField(max_length=50)
+    resumo = models.CharField(max_length=500)
+    descricao = models.CharField(max_length=500)
+    link = models.CharField(max_length=100)
+    gitLink = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.titulo
@@ -68,6 +81,20 @@ class PontuacaoQuizz(models.Model):
 
     def __str__(self):
         return f"{self.nome}"
+
+
+class Tecnologias(models.Model):
+    nome = models.CharField(max_length=100)
+    acronimo = models.CharField(max_length=50)
+    anoCriado = models.CharField(max_length=50)
+    criador = models.CharField(max_length=50)
+    logotipo = models.ImageField(upload_to='media/', null=True)
+    link = models.CharField(max_length=100)
+    descricao = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.nome}"
+
 
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200)

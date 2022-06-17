@@ -51,6 +51,22 @@
 </main>
 <footer>
     ULHT 2022
+    <a id="date"></a>
 </footer>
+<script>
+function doDate() {
+    let result = "";
+
+    const days = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+    const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+    const now = new Date();
+
+    result = days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    document.getElementById("date").innerHTML = result;
+}
+
+setInterval(doDate, 1000);
+</script>
 </body>
 </html>

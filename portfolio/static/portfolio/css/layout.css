@@ -132,3 +132,11 @@ footer {
   color: #F8F4E3;
 }
 
+footer a {
+  height: 5vh;
+  font-size: 3vh;
+  background-color: #2A2B2A;
+  color: #F8F4E3;
+  margin-left: 40%;
+}
+

@@ -4,7 +4,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
 <div class="container">
-    <a href="{% url 'portfolio:new' %}" class="new">Novo Post</a>
+    <a href="{% url 'portfolio:new' %}">Novo Post</a>
 </div>
 
 {% for post in posts %}

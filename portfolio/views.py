@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from .forms import PostForm
+from .forms import *
 from .models import *
 from .quizz import desenha_grafico_resultados
 from django.contrib.auth.decorators import login_required
@@ -23,6 +23,20 @@ def educacao_page_view(request):
     return render(request, 'portfolio/educacao.html', context)
 
 
+def educacaoNew_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    form = CadeiraForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:educacao'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/educacaoNew.html', context)
+
+
 def competencias_page_view(request):
     context = {
         "competencias": Competencia.objects.all()
@@ -32,16 +46,34 @@ def competencias_page_view(request):
 
 def projetos_page_view(request):
     context = {
-        "projetos": Projeto.objects.all()
+        "projetos": Projeto.objects.all(),
+        "tfcs": Tfc.objects.all()
     }
     return render(request, 'portfolio/projetos.html', context)
+
+
+def projetosNew_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    form = ProjectForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/projetosNew.html', context)
 
 def apis_page_view(request):
     return render(request, 'portfolio/apis.html')
 
 
 def sobre_page_view(request):
-    return render(request, 'portfolio/sobre.html')
+    context = {
+        "tecnologias": Tecnologias.objects.all()
+    }
+    return render(request, 'portfolio/sobre.html', context)
 
 
 def website_page_view(request):

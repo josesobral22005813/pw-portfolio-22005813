@@ -1,0 +1,32 @@
+.tecnologias {
+  background-color: #F8F4E3;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 4em;
+}
+
+.tecnologias div {
+  width: 350px;   height: auto;
+  padding: 25px;  margin: 10px;
+  background-color: #FBB99D;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px #2A2B2A;
+}
+
+div p:first-child {
+  width: 350px;
+  height: 50px;
+  margin: -25px;
+  margin-bottom: 15px;
+  padding-top: 12px;
+  padding-left: 12px;
+  background-color: #37372F;
+  color: #F8F4E3;
+  border-radius: 10px 10px 0px 0px;
+  display: flex;
+}
+
+div img {
+  width: 100%;
+}

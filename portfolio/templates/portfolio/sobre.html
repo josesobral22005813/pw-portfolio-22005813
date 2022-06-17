@@ -1,5 +1,22 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
+<h1 class="title">Tecnologias</h1>
 
+<div class="tecnologias">
+    {% for tecnologia in tecnologias %}
+
+    <div>
+        <p>{{ tecnologia.nome }} ({{ tecnologia.acronimo }})</p>
+        <p>Ano Criado: {{ tecnologia.anoCriado }}º ano</p>
+        <p>Criador: {{ tecnologia.criador }}</p>
+        <img src="{{ tecnologia.logotipo.url }}">
+        <p>Descrição: {{ cadeira.descricao }}</p>
+        <p><a href="{{ tecnologia.link }}">Link</a></p>
+    </div>
+
+    {% endfor %}
+</div>
+
+<h1 class="title">Diagrama Entidade Relação</h1>
 {% endblock %}
