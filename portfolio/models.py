@@ -41,7 +41,7 @@ class Tfc(models.Model):
     titulo = models.CharField(max_length=50)
     autor = models.CharField(max_length=100)
     orientador = models.CharField(max_length=50)
-    resumo = models.CharField(max_length=500)
+    resumo = models.CharField(max_length=1000)
     descricao = models.CharField(max_length=500)
     link = models.CharField(max_length=100)
     gitLink = models.CharField(max_length=100, blank=True)
