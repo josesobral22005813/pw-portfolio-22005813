@@ -10,7 +10,7 @@
 }
 
 .competencias {
-  background-color: #FBB99D;
+  background-color: #F8F4E3;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -21,6 +21,7 @@
   float: left;
   width: 330px;
   height: 265px;
+  background-color: #FBB99D;
   border-radius: 5px;
   box-shadow: 5px 5px 15px #706C61;
   margin: 3vh 3vh;
