@@ -71,7 +71,7 @@ def apis_page_view(request):
 
 def sobre_page_view(request):
     context = {
-        "tecnologias": Tecnologias.objects.all()
+        "tecnologias": Tecnologia.objects.all()
     }
     return render(request, 'portfolio/sobre.html', context)
 
